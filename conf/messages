@@ -1,0 +1,10 @@
+# Messages
+
+interventions.list.title={0,choice,0#No interventions|1#One intervention|1<{0,number,integer} interventions} found
+departments.list.title={0,choice,0#No departments|1#One department|1<{0,number,integer} departments} found
+applications.list.title={0,choice,0#No applications|1#One application|1<{0,number,integer} applications} found
+
+departments.show.title=Department {0}
+applications.show.title=Application {0}
+
+

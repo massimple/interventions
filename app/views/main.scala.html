@@ -1,0 +1,30 @@
+@(content: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interventions</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")"> 
+    </head>
+    <body>
+        
+        <header class="topbar">
+            <h1 class="fill">
+                <a href="@routes.Interventions.index()">
+                    Massimple &mdash; Interventions database
+                </a>
+				<div>
+                <a href="@routes.Interventions.index()">Interventions</a> |
+				<a href="@routes.Departments.list()">Departments</a> |
+				<a href="@routes.Applications.list()">Applications</a>				
+				</div>
+            </h1>
+        </header>
+        
+        <section id="main">
+            @content
+        </section>
+        
+    </body>
+</html>

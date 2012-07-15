@@ -1,0 +1,26 @@
+@(applicationForm: Form[Application])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Add an Application</h1>
+    
+    @form(routes.Applications.save()) {
+        
+        <fieldset>
+        
+            @inputText(applicationForm("name"), '_label -> "Application name")
+
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Create this application" class="btn primary"> or 
+            <a href="@routes.Applications.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+}

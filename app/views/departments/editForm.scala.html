@@ -1,0 +1,30 @@
+@(id: Long, departmentForm: Form[Department])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Edit Department</h1>
+    
+    @form(routes.Departments.update(id)) {
+        
+        <fieldset>
+        
+            @inputText(departmentForm("name"), '_label -> "Department name")
+            
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Save this department" class="btn primary"> or 
+            <a href="@routes.Departments.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+    @form(routes.Departments.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Delete this department" class="btn danger">
+    }
+    
+}

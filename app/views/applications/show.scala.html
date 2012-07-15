@@ -1,0 +1,8 @@
+@(application: Application)
+
+@main {
+    <h1 id="homeTitle">@Messages("applications.show.title",application.id)</h1>
+	<a href="@routes.Applications.edit(application.id)">@application.name</a>
+}
+
+            

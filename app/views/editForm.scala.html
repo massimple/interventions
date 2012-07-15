@@ -1,0 +1,39 @@
+@(id: Long, interventionForm: Form[Intervention])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Edit Intervention</h1>
+    
+    @form(routes.Interventions.update(id)) {
+        
+        <fieldset>
+        
+            @inputText(interventionForm("name"), '_label -> "Intervention name")
+            @inputText(interventionForm("introduced"), '_label -> "Introduced date")
+            @inputText(interventionForm("scheduled"), '_label -> "Scheduled date")
+
+            @select(
+                interventionForm("application.id"), 
+                options(Application.options), 
+                '_label -> "Application", '_default -> "-- Choose an application --",
+                '_showConstraints -> false
+            )
+            
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Save this intervention" class="btn primary"> or 
+            <a href="@routes.Interventions.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+    @form(routes.Interventions.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Delete this intervention" class="btn danger">
+    }
+    
+}

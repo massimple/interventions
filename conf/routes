@@ -1,0 +1,63 @@
+# Routes
+# This file defines all interventions routes (Higher priority routes first)
+# ~~~~
+
+
+# Home page | Default path will just redirect to the intervention list
+GET     /                           controllers.Interventions.index()
+
+################## Interventions ##################
+
+# Interventions list (look at the default values for pagination parameters)
+GET     /interventions                  controllers.Interventions.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add an intervention
+GET     /interventions/new              controllers.Interventions.create()
+POST    /interventions                  controllers.Interventions.save()
+
+# Edit existing intervention
+GET     /interventions/:id              controllers.Interventions.edit(id:Long)
+POST    /interventions/:id              controllers.Interventions.update(id:Long)
+
+# Delete an intervention
+POST    /interventions/:id/delete       controllers.Interventions.delete(id:Long)
+
+################## Departments ##################
+
+# Departments list (look at the default values for pagination parameters)
+GET     /departments                  controllers.Departments.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add an department
+GET     /departments/new              controllers.Departments.create()
+POST    /departments                  controllers.Departments.save()
+
+# Edit existing department
+GET     /departments/:id              controllers.Departments.edit(id:Long)
+POST    /departments/:id              controllers.Departments.update(id:Long)
+GET     /departments/:id/show              controllers.Departments.show(id:Long)
+GET     /departments/:id/show.json              controllers.Departments.showJson(id:Long)
+
+# Delete an department
+POST    /departments/:id/delete       controllers.Departments.delete(id:Long)
+
+################## Applications ##################
+
+# Applications list (look at the default values for pagination parameters)
+GET     /applications                  controllers.Applications.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add an application
+GET     /applications/new              controllers.Applications.create()
+POST    /applications                  controllers.Applications.save()
+
+# Edit existing application
+GET     /applications/:id              controllers.Applications.edit(id:Long)
+POST    /applications/:id              controllers.Applications.update(id:Long)
+GET     /applications/:id/show              controllers.Applications.show(id:Long)
+GET     /applications/:id/show.json              controllers.Applications.showJson(id:Long)
+
+# Delete an application
+POST    /applications/:id/delete       controllers.Applications.delete(id:Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
