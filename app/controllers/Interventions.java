@@ -7,7 +7,7 @@ import play.mvc.*;
 import play.data.*;
 import play.db.jpa.*;
 
-import views.html.*;
+import views.html.interventions.*;
 
 import models.*;
 
