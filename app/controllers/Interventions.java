@@ -113,7 +113,17 @@ public class Interventions extends Controller {
         flash("success", "Intervention has been deleted");
         return goHome;
     }
-    
+
+    /**
+     * Show a existing intervention.
+     *
+     * @param id Id of the intervention to show
+     */
+    @Transactional(readOnly=true)
+    public static Result show(Long id) {
+        Intervention intervention = Intervention.findById(id);
+        return ok(show.render(intervention));
+    }
 
 }
             

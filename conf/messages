@@ -6,5 +6,6 @@ applications.list.title={0,choice,0#No applications|1#One application|1<{0,numbe
 
 departments.show.title=Department {0}
 applications.show.title=Application {0}
+interventions.show.title=Intervention {0}
 
 

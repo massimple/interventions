@@ -1,0 +1,45 @@
+@(intervention: Intervention)
+
+@main {
+    <h1 id="homeTitle">@Messages("interventions.show.title",intervention.id)</h1>
+	<a href="@routes.Interventions.edit(intervention.id)">@intervention.name</a>
+	
+	<table>
+            <thead>
+                <tr>
+                    <td>Introduced</td>
+                    <td>Scheduled</td>					
+                </tr>
+            </thead>
+	<tbody>		
+			<tr>
+				<td>
+					@if(intervention.introduced == null) {
+						<em>-</em>
+					} else {
+						@intervention.introduced.format("dd MMM yyyy")
+					}
+				</td>
+				<td>
+					@if(intervention.scheduled == null) {
+						<em>-</em>
+					} else {
+						@intervention.scheduled.format("dd MMM yyyy")
+					}
+				</td>
+			</tr>
+	</tbody>
+	
+	Deparments:
+	<ul>
+		@for(department <- intervention.getDepartments) {
+		<li>@department.name</li>
+		}
+	</ul>
+	
+</table>
+	
+	
+}
+
+            

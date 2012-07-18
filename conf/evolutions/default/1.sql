@@ -29,12 +29,20 @@ create table application (
   constraint pk_application primary key (id))
 ;
 
+create table ldeptinterv (
+	department_id	bigint not null,
+	idintervention_id	bigint not null,
+	constraint pk_ldeptinterv primary key (department_id, idintervention_id))
+;
+
 
 create sequence application_seq start with 1000;
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
+
+drop table if exists ldeptinterv;
 drop table if exists application;
 drop table if exists department;
 drop table if exists intervention;

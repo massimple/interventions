@@ -18,6 +18,7 @@ POST    /interventions                  controllers.Interventions.save()
 # Edit existing intervention
 GET     /interventions/:id              controllers.Interventions.edit(id:Long)
 POST    /interventions/:id              controllers.Interventions.update(id:Long)
+GET     /interventions/:id/show              controllers.Interventions.show(id:Long)
 
 # Delete an intervention
 POST    /interventions/:id/delete       controllers.Interventions.delete(id:Long)

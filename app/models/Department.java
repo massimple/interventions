@@ -23,6 +23,11 @@ public class Department {
     @Constraints.Required
     public String name;
     
+    @ManyToMany(targetEntity = Intervention.class, fetch = FetchType.LAZY)
+    @JoinTable(name = "ldeptinterv", joinColumns = @JoinColumn(name = "department_id"), inverseJoinColumns = @JoinColumn(name = "idintervention_id"))
+    //@ForeignKey(name = "fk_termsourceacceptoffice_source_id", inverseName = "fk_termsourceacceptoffice_office_id")
+    private List<Intervention> interventions = new ArrayList<Intervention>();
+	
     /**
      * Find an Department by id.
      */

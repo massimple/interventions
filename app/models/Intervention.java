@@ -31,6 +31,9 @@ public class Intervention {
 	
     @ManyToOne(cascade = CascadeType.MERGE)
     public Application application;	
+	
+    @ManyToMany(mappedBy = "interventions", targetEntity = Department.class, fetch = FetchType.LAZY)
+    private List<Department> departments = new ArrayList<Department>();	
     
     /**
      * Find an Intervention by id.
@@ -96,6 +99,10 @@ public class Intervention {
         return new Page(data, total, page, pageSize);
     }
     
+	public List<Department> getDepartments()	{
+		return departments;
+	}
+	
     /**
      * Used to represent a interventions page.
      */
